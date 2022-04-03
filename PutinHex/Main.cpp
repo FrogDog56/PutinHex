@@ -10,7 +10,6 @@ void run()
 	AllocConsole();
 	freopen_s(&pFile, "CONOUT$", "w", stdout);
 
-
 	if (getMinecraft() == nullptr)
 	{
 		std::cout << "[Hex] Minecraft instance not found!" << std::endl;

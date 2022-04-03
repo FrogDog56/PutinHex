@@ -13,11 +13,11 @@ void run()
 
 	if (getMinecraft() == nullptr)
 	{
-		std::cout << "[PutinHex] Minecraft instance not found!" << std::endl;
+		std::cout << "[Hex] Minecraft instance not found!" << std::endl;
 		return;
 	}
-	std::cout << "[PutinHex] Minecraft instance found!" << std::endl;
-	std::cout << "[PutinHex] Hecks injected successfully!!" << std::endl;
+	std::cout << "[Hex] Minecraft instance found!" << std::endl;
+	std::cout << "[Hex] Hecks injected successfully!!" << std::endl;
 
 	bool activated = false;
 	while (true)
@@ -27,7 +27,7 @@ void run()
 			try
 			{
 				setSprinting(true);
-				playerJump(false); 
+				playerJump(false);
 			}
 			catch (std::exception&)
 			{
@@ -36,11 +36,10 @@ void run()
 			Sleep(30);
 		}
 
-		if (GetAsyncKeyState(VK_NUMPAD0) && 0x8000)
+		if (GetAsyncKeyState(VK_NUMPAD0))
 		{
-			while (GetAsyncKeyState(VK_NUMPAD0) && 0x8000) {}
+			while (GetAsyncKeyState(VK_NUMPAD0)) {}
 			activated = !activated;
-
 		}
 	}
 }

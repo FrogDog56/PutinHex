@@ -13,6 +13,13 @@ jobject getPlayer()
 	return mc.env->GetObjectField(getMinecraft(), getPlayer);
 }
 
+bool isOnGround()
+{
+	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
+	jboolean onGround = mc.env->GetBooleanField(getPlayer(), onGroundField);
+	return onGround ? false : true;
+}
+
 void setSprinting(jboolean sprinting)
 {
 	jmethodID setSprinting = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "d", "(Z)V");
@@ -23,13 +30,6 @@ void sendChatMessage(jstring message)
 {
 	jmethodID sendChatMessage = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "e", "(Ljava/lang/String;)V");
 	mc.env->CallVoidMethod(getPlayer(), sendChatMessage, message);
-}
-
-bool isOnGround() 
-{
-	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
-	jboolean onGround = mc.env->GetBooleanField(getPlayer(), onGroundField);
-	return onGround ? false : true;
 }
 
 void playerJump(bool checkGround) 

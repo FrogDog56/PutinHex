@@ -5,20 +5,20 @@ void init()
     DWORD id = GetCurrentProcessId();
     if (id == NULL) 
     {
-        MessageBox(NULL, "Invalid process ID.", "PutinHex", MB_ICONERROR);
+        MessageBox(NULL, "Invalid process ID.", "Hex", MB_ICONERROR);
         exit(-1);
     }
 
     HWND window = FindWindow(NULL, "Minecraft 1.8.9");
     if (!window) 
     {
-        MessageBox(NULL, "Minecraft instance not found make sure you are playing 1.8.9.", "PutinHex", MB_ICONERROR);
+        MessageBox(NULL, "Minecraft instance not found make sure you are playing 1.8.9.", "Hex", MB_ICONERROR);
     }
 
     jsize vmCount;
     if (JNI_GetCreatedJavaVMs(&mc.vm, 1, &vmCount) != JNI_OK || vmCount == 0) 
     {
-        MessageBoxA(NULL, "JVM not found.", "PutinHex", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, "JVM not found.", "Hex", MB_ICONERROR | MB_OK);
         return;
     }
 
@@ -30,7 +30,7 @@ void init()
 
     if (res != JNI_OK) 
     {
-        MessageBoxA(NULL, "Failed to create a java environnement.", "PutinHex", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, "Failed to create a java environnement.", "Hex", MB_ICONERROR | MB_OK);
         return;
     }
 
@@ -40,7 +40,7 @@ void init()
     }
     else 
     {
-        MessageBoxA(NULL, "Failed to create a java environnement.", "PutinHex", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, "Failed to create a java environnement.", "Hex", MB_ICONERROR | MB_OK);
         return;
     }
 

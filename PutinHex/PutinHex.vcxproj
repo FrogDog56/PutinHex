@@ -159,7 +159,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
     <ClInclude Include="JNI\classfile_constants.h" />
     <ClInclude Include="JNI\jawt.h" />
     <ClInclude Include="JNI\jawt_md.h" />
@@ -169,11 +168,12 @@
     <ClInclude Include="JNI\jvmti.h" />
     <ClInclude Include="JNI\jvmticmlr.h" />
     <ClInclude Include="Main.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="wrapper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

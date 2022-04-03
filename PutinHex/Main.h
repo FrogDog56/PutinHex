@@ -15,9 +15,3 @@ class Main
 
 void run();
 
-jobject getMinecraft();
-jobject getPlayer();
-jboolean isServerWorld();
-void setSprinting(jboolean sprinting);
-void sendChatMessage(jstring message);
-

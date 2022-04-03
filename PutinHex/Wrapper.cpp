@@ -29,12 +29,7 @@ bool isOnGround()
 {
 	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
 	jboolean onGround = mc.env->GetBooleanField(getPlayer(), onGroundField);
-
-
-	if (onGround == false) {
-		return false;
-	}
-	return true;
+	return onGround ? false : true;
 }
 
 void playerJump(bool checkGround) 

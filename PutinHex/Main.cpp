@@ -5,7 +5,7 @@
 
 FILE* pFile = nullptr;
 
-void run() 
+void run()
 {
 	AllocConsole();
 	freopen_s(&pFile, "CONOUT$", "w", stdout);
@@ -20,21 +20,28 @@ void run()
 	std::cout << "[PutinHex] Hecks injected successfully!!" << std::endl;
 
 	bool activated = false;
-	while (true) 
+	while (true)
 	{
-		if (activated) 
+		if (activated)
 		{
-			setSprinting(true);
-			playerJump(false);
-
+			try
+			{
+				setSprinting(true);
+				playerJump(false); 
+			}
+			catch (std::exception&)
+			{
+				std::cout << "exception..." << std::endl;
+			}
 			Sleep(30);
 		}
-		if (GetAsyncKeyState(VK_NUMPAD0) && 0x8000) 
+
+		if (GetAsyncKeyState(VK_NUMPAD0) && 0x8000)
 		{
+			while (GetAsyncKeyState(VK_NUMPAD0) && 0x8000) {}
 			activated = !activated;
+
 		}
 	}
-
 }
-
 

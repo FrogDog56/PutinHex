@@ -26,7 +26,13 @@ void run()
 			try
 			{
 				setSprinting(true);
-				playerJump(false);
+				playerJump();
+				std::cout << "X: ";
+				std::cout << getPosX() << std::endl;
+				std::cout << "Y: ";
+				std::cout << getPosY() << std::endl;
+				std::cout << "Z: ";
+				std::cout << getPosZ() << std::endl;
 			}
 			catch (std::exception&)
 			{

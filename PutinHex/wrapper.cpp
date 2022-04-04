@@ -20,6 +20,27 @@ bool isOnGround()
 	return onGround ? false : true;
 }
 
+double getPosX()
+{
+	jfieldID posXField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "s", "D");
+	jdouble posX = mc.env->GetDoubleField(getPlayer(), posXField);
+	return posX;
+}
+
+double getPosY()
+{
+	jfieldID posYField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "t", "D");
+	jdouble posY = mc.env->GetDoubleField(getPlayer(), posYField);
+	return posY;
+}
+
+double getPosZ()
+{
+	jfieldID posZField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "u", "D");
+	jdouble posZ = mc.env->GetDoubleField(getPlayer(), posZField);
+	return posZ;
+}
+
 void setSprinting(jboolean sprinting)
 {
 	jmethodID setSprinting = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "d", "(Z)V");
@@ -32,10 +53,8 @@ void sendChatMessage(jstring message)
 	mc.env->CallVoidMethod(getPlayer(), sendChatMessage, message);
 }
 
-void playerJump(bool checkGround) 
+void playerJump()
 {
 	jmethodID jumpMethod = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "bF", "()V");
-	if (checkGround && !isOnGround())
-		return;
 	mc.env->CallVoidMethod(getPlayer(), jumpMethod);
 }

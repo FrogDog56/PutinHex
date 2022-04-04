@@ -30,7 +30,7 @@ DWORD GetProcId(const char* procName)
 
 int main()
 {
-    const char* dllPath = "C:\\Users\\whela\\OneDrive\\Desktop\\Hex.dll";
+    const char* dllPath = "Hex.dll";
     const char* procName = "javaw.exe";
     DWORD procId = 0;
 

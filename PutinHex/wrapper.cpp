@@ -13,6 +13,18 @@ jobject getPlayer()
 	return mc.env->GetObjectField(getMinecraft(), getPlayer);
 }
 
+jobject getWorld()
+{
+	jfieldID getWorld = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "f", "Lbdb;");
+	return mc.env->GetObjectField(getMinecraft(), getWorld);
+}
+
+jobject getGameSettings()
+{
+	jfieldID getGameSettings = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "t", "Lavh;");
+	return mc.env->GetObjectField(getMinecraft(), getGameSettings);
+}
+
 bool isOnGround()
 {
 	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
@@ -41,6 +53,32 @@ double getPosZ()
 	return posZ;
 }
 
+float getYaw()
+{
+	jfieldID yawField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "y", "F");
+	jfloat yaw = mc.env->GetFloatField(getPlayer(), yawField);
+	return yaw;
+}
+
+float getPitch()
+{
+	jfieldID pitchField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "z", "F");
+	jfloat pitch = mc.env->GetFloatField(getPlayer(), pitchField);
+	return pitch;
+}
+
+void setYaw(jfloat value)
+{
+	jfieldID yawField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "y", "F");
+	mc.env->SetFloatField(getPlayer(), yawField, value);
+}
+
+void setPitch(jfloat value)
+{
+	jfieldID pitchField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "z", "F");
+	mc.env->SetFloatField(getPlayer(), pitchField, value);
+}
+
 void setSprinting(jboolean sprinting)
 {
 	jmethodID setSprinting = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "d", "(Z)V");
@@ -57,4 +95,10 @@ void playerJump()
 {
 	jmethodID jumpMethod = mc.env->GetMethodID(mc.env->GetObjectClass(getPlayer()), "bF", "()V");
 	mc.env->CallVoidMethod(getPlayer(), jumpMethod);
+}
+
+void setGammaSetting(jfloat value)
+{
+	jfieldID setGammaSetting = mc.env->GetFieldID(mc.env->GetObjectClass(getGameSettings()), "aJ", "F");
+	mc.env->SetFloatField(getGameSettings(), setGammaSetting, value);
 }

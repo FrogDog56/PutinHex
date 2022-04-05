@@ -27,12 +27,14 @@ void run()
 			{
 				setSprinting(true);
 				playerJump();
+				/*
 				std::cout << "X: ";
 				std::cout << getPosX() << std::endl;
 				std::cout << "Y: ";
 				std::cout << getPosY() << std::endl;
 				std::cout << "Z: ";
 				std::cout << getPosZ() << std::endl;
+				*/
 			}
 			catch (std::exception&)
 			{
@@ -45,6 +47,19 @@ void run()
 		{
 			while (GetAsyncKeyState(VK_NUMPAD0)) {}
 			activated = !activated;
+		}
+
+		if (GetAsyncKeyState(VK_END))
+		{
+			while (GetAsyncKeyState(VK_END)) {}
+			sendChatMessage(mc.env->NewStringUTF("heck"));
+			setPitch(90.0f);
+		}
+
+		if (GetAsyncKeyState(VK_NUMPAD1))
+		{
+			while (GetAsyncKeyState(VK_NUMPAD1)) {}
+			setGammaSetting(1000.0f);
 		}
 	}
 }

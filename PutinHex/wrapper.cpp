@@ -114,3 +114,16 @@ void setRightClickDelayTimer(jint value)
 	jfieldID setRightClickDelayTimer = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "ap", "I");
 	mc.env->SetIntField(getMinecraft(), setRightClickDelayTimer, value);
 }
+
+void setTimer(jfloat value)
+{
+	jfieldID setTimer = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "Y", "F");
+	mc.env->SetFloatField(getMinecraft(), setTimer, value);
+}
+
+// needs to be tested on mp
+void logout()
+{
+	jmethodID logout = mc.env->GetMethodID(mc.env->GetObjectClass(getWorld()), "H", "()V");
+	mc.env->CallVoidMethod(getWorld(), logout);
+}

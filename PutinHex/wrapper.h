@@ -22,4 +22,6 @@ void sendChatMessage(jstring message);
 void playerJump();
 void setGammaSetting(jfloat value);
 void setRightClickDelayTimer(jint value);
+void setTimer(jfloat value); //broken
+void logout(); //test on mp
 

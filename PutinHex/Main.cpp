@@ -63,6 +63,12 @@ void run()
 			//Fullbright
 			setGammaSetting(1000.0f);
 		}
+
+		if (GetAsyncKeyState(VK_NUMPAD2))
+		{
+			while (GetAsyncKeyState(VK_NUMPAD2)) {}
+			//logout();
+		}
 	}
 }
 

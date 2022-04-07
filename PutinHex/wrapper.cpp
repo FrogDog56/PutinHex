@@ -25,6 +25,12 @@ jobject getGameSettings()
 	return mc.env->GetObjectField(getMinecraft(), getGameSettings);
 }
 
+jobject getRenderManager()
+{
+	jfieldID getRenderManager = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "o", "Lbiu;");
+	return mc.env->GetObjectField(getMinecraft(), getRenderManager);
+}
+
 bool isOnGround()
 {
 	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
@@ -101,4 +107,10 @@ void setGammaSetting(jfloat value)
 {
 	jfieldID setGammaSetting = mc.env->GetFieldID(mc.env->GetObjectClass(getGameSettings()), "aJ", "F");
 	mc.env->SetFloatField(getGameSettings(), setGammaSetting, value);
+}
+
+void setRightClickDelayTimer(jint value)
+{
+	jfieldID setRightClickDelayTimer = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "ap", "I");
+	mc.env->SetIntField(getMinecraft(), setRightClickDelayTimer, value);
 }

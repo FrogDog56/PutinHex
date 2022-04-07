@@ -25,8 +25,9 @@ void run()
 		{
 			try
 			{
-				setSprinting(true);
-				playerJump();
+				setRightClickDelayTimer(0);
+				//setSprinting(true);
+				//playerJump();
 				/*
 				std::cout << "X: ";
 				std::cout << getPosX() << std::endl;
@@ -59,6 +60,7 @@ void run()
 		if (GetAsyncKeyState(VK_NUMPAD1))
 		{
 			while (GetAsyncKeyState(VK_NUMPAD1)) {}
+			//Fullbright
 			setGammaSetting(1000.0f);
 		}
 	}

@@ -6,6 +6,7 @@ jobject getMinecraft();
 jobject getPlayer();
 jobject getWorld();
 jobject getGameSettings();
+jobject getRenderManager();
 
 bool isOnGround();
 double getPosX();
@@ -20,4 +21,5 @@ void setSprinting(jboolean);
 void sendChatMessage(jstring message);
 void playerJump();
 void setGammaSetting(jfloat value);
+void setRightClickDelayTimer(jint value);
 

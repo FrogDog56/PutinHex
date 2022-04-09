@@ -25,7 +25,8 @@ void run()
 		{
 			try
 			{
-				setRightClickDelayTimer(0);
+				setKeyBindAttack(true);
+				//setRightClickDelayTimer(0);
 				//setSprinting(true);
 				//playerJump();
 				/*
@@ -64,10 +65,16 @@ void run()
 			setGammaSetting(1000.0f);
 		}
 
+		// only works on MP
 		if (GetAsyncKeyState(VK_NUMPAD2))
 		{
 			while (GetAsyncKeyState(VK_NUMPAD2)) {}
-			//logout();
+			logout();
+		}
+
+		if (GetAsyncKeyState(VK_NUMPAD3))
+		{
+			while (GetAsyncKeyState(VK_NUMPAD3)) {}
 		}
 	}
 }

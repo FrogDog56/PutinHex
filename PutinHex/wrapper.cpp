@@ -35,7 +35,7 @@ bool isOnGround()
 {
 	jfieldID onGroundField = mc.env->GetFieldID(mc.env->GetObjectClass(getPlayer()), "C", "Z");
 	jboolean onGround = mc.env->GetBooleanField(getPlayer(), onGroundField);
-	return onGround ? false : true;
+	return onGround;
 }
 
 double getPosX()
@@ -107,6 +107,12 @@ void setGammaSetting(jfloat value)
 {
 	jfieldID setGammaSetting = mc.env->GetFieldID(mc.env->GetObjectClass(getGameSettings()), "aJ", "F");
 	mc.env->SetFloatField(getGameSettings(), setGammaSetting, value);
+}
+
+void setKeyBindAttack(jboolean value)
+{
+	jfieldID setKeyBindAttack = mc.env->GetFieldID(mc.env->GetObjectClass(getGameSettings()), "ai", "Z");
+	mc.env->SetBooleanField(getGameSettings(), setKeyBindAttack, value);
 }
 
 void setRightClickDelayTimer(jint value)

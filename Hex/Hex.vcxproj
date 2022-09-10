@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{81fc20d0-3075-4d04-89eb-eb3f1c214dc4}</ProjectGuid>
-    <RootNamespace>PutinHex</RootNamespace>
+    <RootNamespace>Hex</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Hex</ProjectName>
   </PropertyGroup>

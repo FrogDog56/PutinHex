@@ -21,12 +21,14 @@ void run()
 	bool activated = false;
 	while (true)
 	{
+
 		if (activated)
 		{
 			try
 			{
-				setKeyBindAttack(true);
-				//setRightClickDelayTimer(0);
+				//mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+				//mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+				setRightClickDelayTimer(0);
 				//setSprinting(true);
 				//playerJump();
 				/*
@@ -42,7 +44,7 @@ void run()
 			{
 				std::cout << "exception..." << std::endl;
 			}
-			Sleep(30);
+			Sleep(20);
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD0))

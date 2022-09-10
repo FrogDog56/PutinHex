@@ -21,7 +21,6 @@ void setSprinting(jboolean);
 void sendChatMessage(jstring message);
 void playerJump();
 void setGammaSetting(jfloat value);
-void setKeyBindAttack(jboolean value);
 void setRightClickDelayTimer(jint value);
 void setTimer(jfloat value); //broken
 void logout(); //test on mp

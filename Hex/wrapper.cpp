@@ -109,12 +109,6 @@ void setGammaSetting(jfloat value)
 	mc.env->SetFloatField(getGameSettings(), setGammaSetting, value);
 }
 
-void setKeyBindAttack(jboolean value)
-{
-	jfieldID setKeyBindAttack = mc.env->GetFieldID(mc.env->GetObjectClass(getGameSettings()), "ai", "Z");
-	mc.env->SetBooleanField(getGameSettings(), setKeyBindAttack, value);
-}
-
 void setRightClickDelayTimer(jint value)
 {
 	jfieldID setRightClickDelayTimer = mc.env->GetFieldID(mc.env->GetObjectClass(getMinecraft()), "ap", "I");
